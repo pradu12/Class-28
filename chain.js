@@ -1,8 +1,8 @@
 class Chain{
-    constructor(ba,bb){
+    constructor(ba,pb){
         var option = {
             bodyA:ba,
-            bodyB:bb,
+            pointB:pb,
             stiffness:0.04,
             length: 10
         }
@@ -12,7 +12,13 @@ class Chain{
     }
     display(){
         strokeWeight(4);
-        line (this.chain.bodyA.position.x,this.chain.bodyA.position.y,this.chain.bodyB.position.x,this.chain.bodyB.position.y);
+        if(this.chain.bodyA){
+            line (this.chain.bodyA.position.x,this.chain.bodyA.position.y,this.chain.pointB.x,this.chain.pointB.y);
+        }
+        
 
+    }
+    fly(){
+        this.chain.bodyA=null;
     }
 }
